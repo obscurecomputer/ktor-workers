@@ -10,7 +10,7 @@ RUN ./gradlew dependencies --no-daemon
 COPY src src
 RUN ./gradlew shadowJar --no-daemon
 
-FROM eclipse-temurin:8-alpine-3.21
+FROM eclipse-temurin:21-jre
 WORKDIR /app
 
 COPY --from=build /app/build/libs/*-all.jar app.jar
